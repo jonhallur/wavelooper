@@ -24,6 +24,12 @@ namespace ambient.wavelooper.testing
                 //      Assert.AreEqual(1,1);
                 }
 
+		[Test]
+		public void TestReadData()
+		{
+			Assert.IsTrue(this.wav.readData());
+		}
+
 		[TearDown]
 		public void TestCloseFile()
 		{

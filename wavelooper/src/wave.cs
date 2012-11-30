@@ -3,8 +3,8 @@ using System.IO;
 
 namespace ambient.wavelooper
 {
-    public class WaveFile
-    {
+	public class WaveFile
+	{
 		private int chunkID;
 		private int fileSize;
 		private int riffType;
@@ -64,8 +64,27 @@ namespace ambient.wavelooper
 		}
 		public bool closeFile()
 		{
-			this.br.Close();
-			return true;
+			try
+			{
+				this.br.Close();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+		public bool readData()
+		{
+			try
+			{
+				this.dataArray = this.br.ReadBytes(this.dataSize);
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
     }
 }

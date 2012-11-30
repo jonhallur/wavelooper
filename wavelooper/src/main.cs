@@ -22,6 +22,8 @@ namespace ambient.wavelooper
 				Console.WriteLine("Build is broken");
 				Console.WriteLine();
 				Console.WriteLine();
+				Console.WriteLine();
+				Console.WriteLine();
 			}
 			else
 			{
@@ -30,7 +32,8 @@ namespace ambient.wavelooper
 				Console.WriteLine("All Tests are GREEN");
 				Console.WriteLine();
                                 Console.WriteLine();
-
+				Console.WriteLine();
+				Console.WriteLine();
 			}
 		}
 	}
