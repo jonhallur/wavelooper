@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!-- NAnt build file for building Ambient Wavelooper -->
+<project name="wavelooper" default="build">
+	<description>Wavelooper build files.</description>
+	<property name="debug" value="true" overwrite="false" />
+	<target name="clean" description="removes the generated files">
+		<delete file="bin/WaveLooper.exe" failonerror="false" />
+	</target>
+	<target name="build" description="compiles the source code">
+		<csc target="library" output="bin/WaveLooper.dll" debug="${debug}">
+			<sources>
+				<include name="src/wave.cs" />
+			</sources>
+		</csc>
+		<csc target="library" output="bin/test_wave.dll" debug="${debug}">
+                        <sources>
+                                <include name="src/test_wave.cs" />
+                        </sources>
+			<references>
+                                <include name="bin/WaveLooper.dll" />
+                                <include name="/usr/lib/nunit/nunit-console-runner.dll" />
+                        </references>
+                        <pkg-references>
+                                <package name="mono-nunit" />
+                        </pkg-references>
+
+                </csc>
+		<csc target="exe" output="bin/wave_tester.exe" debug="${debug}">
+			<sources>
+				<include name="src/main.cs" />
+			</sources>
+			<references>
+				<include name="/usr/lib/nunit/nunit-console-runner.dll" />
+			</references>
+			<pkg-references>
+				<package name="mono-nunit" />
+			</pkg-references>
+		</csc>
+	<copy file="/usr/lib/nunit/nunit-console-runner.dll" tofile="bin/nunit-console-runner.dll" />
+	</target>
+</project>
