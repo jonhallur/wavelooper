@@ -31,7 +31,7 @@ public function Begin(app : IScriptableApp) {
    var ccEndSelection : Int64 = ccStart + ccLength;
    // create an undo wrapper, so we don't end up with an undo for every marker that we create...
    // 
-   var szUndo = String.Format("Find Best Zero Crossing", step);
+   var szUndo = "Find Best Zero Crossing";
    var idUndo : int = file.BeginUndo(szUndo);
    var first : double = file.GetSample(ccStart, 0);
    var lastSample : double = first;
